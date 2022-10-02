@@ -1,0 +1,31 @@
+
+
+
+<div class="card text-center mt-4" *ngIf="!loading">
+  <div class="card-header h-20">
+    <img src="{{data.image}}" class=" w-50"  >
+  </div>
+  <div class="card-body">
+    <h6 class="card-title">  title: {{data.title}}</h6>
+    </div>
+    <div class="card-body">
+    <h6 class="card-title">  catogary: {{data. category}}</h6>
+    </div>
+    <div class="card-body">
+      <h6 class="card-title">  rate: {{data.rating.rate}}</h6>
+    </div>
+    <div class="card-body">
+      <h6 class="card-title">  count: {{data.rating.count}}</h6>
+    </div>
+    <div class="card-body">
+      <h6 class="card-title">  price: {{data.price}}</h6>
+    </div>
+
+  <div class="card-footer text-muted">
+     description:{{data.description}}
+  </div>
+  <div class="text-center w-100" *ngIf="loading">
+    <app-spinner></app-spinner>
+
+ </div>
+</div>

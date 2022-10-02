@@ -1,0 +1,57 @@
+<div class="m-5 border border-1 p-4 " >
+  <h5 class="text-danger"> shopping cart </h5>
+  <p> you have {{cartproduct.length}}  in your cart</p>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-light text-danger" type="button" (click)="deltecart()"> clear shooping cart  </button>
+</div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">name</th>
+        <th scope="col">price</th>
+        <th scope="col">quantity</th>
+        <th> </th>
+        <th scope="col">total</th>
+        <th  scope="col" > </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item  of  cartproduct ; let index =index " >
+        <td  > <img  src="{{ item.item.image}}"  style="width:50px;"></td>
+        <td> {{item.item.title}}</td>
+        <td> {{item.item.price}} L.E</td>
+        <td colspan="2">
+        <div class="d-flex flex-row mb-3">
+          <button type="button" class="btn btn-dark ms-1 "  (click)="plusamount(index)"> + </button>
+           <input type="number"   min="1" class="form-control ms-1"  [(ngModel)]="item.quantity">
+
+          <button type="button" class="btn btn-dark ms-1 " (click)="minusamount(index)">-</button>
+        </div>
+        </td>
+
+        <td>  {{item.quantity * item.item.price}} L.E</td>
+        <td> <button type="button" class="btn btn-danger" (click)="delteproducet(index)">Delete</button>
+        </td>
+      </tr>
+      <tr>
+
+        <td colspan="4" >  <div class="d-flex justify-content-end">   Total :  {{total}}  L.E</div></td>
+
+
+        <td colspan="3">
+            <div class="d-flex justify-content-center">
+              <button type="button" class="btn btn-success" (click)="addproducet()">Success</button>
+          </div>
+       </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div class="alert alert-success" role="alert" *ngIf="success">
+    <h4 class="alert-heading"> the producets add to cart sucessfully</h4>
+
+  </div>
+</div>
